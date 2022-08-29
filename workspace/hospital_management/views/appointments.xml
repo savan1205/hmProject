@@ -1,0 +1,46 @@
+<odoo>
+    <record id="view_appointments" model="ir.ui.view">
+        <field name="name">Appointments</field>
+        <field name="model">hospital.appointments</field>
+        <field name="arch" type="xml">
+            <form>
+                <!-- <header>
+                    <button name="action_cancel" string="cancel" class="oe_highlight" type="object"/>
+                </header> -->
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name_id"></field>
+                            <field name="gender"></field>
+                            <field name="stat"></field>
+                        </group>
+                        <group>
+                            <field name="doctor_id"></field>
+                            <field name="date"></field>
+                            <field name="appId"></field>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_appointments_tree" model="ir.ui.view">
+        <field name="name">hospital.appointments.tree</field>
+        <field name="model">hospital.appointments</field>
+        <field name="arch" type="xml">
+            <tree>
+              <field name="name_id"/>
+              <field name="doctor_id"/> 
+              <field name="appId"/>
+              <field name="stat" widget="badge"
+                decoration-danger="stat=='cancelled'"
+                decoration-success="stat=='active'"
+                decoration-info="stat=='draft'"
+                decoration-muted="stat=='inConsultation'"
+
+                 />
+            </tree>
+        </field>
+    </record>
+</odoo>    

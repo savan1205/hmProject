@@ -1,0 +1,32 @@
+<odoo>
+    <record id="view_hospital_degrees_form" model="ir.ui.view">
+        <field name="name">hospital.degrees.form</field>
+        <field name="model">hospital.degrees</field>
+        <field name="arch" type="xml">
+            <form>
+                 <header>
+                <!--<button name="action_degCount" string="degCount" class="oe_highlight" type="object"/> -->
+                <button name="%(hospital_management.action_doctor_name)d" string="DocName" class="oe_highlight" type="action"/>
+                </header>
+                <sheet>
+                    <group>                     
+                        <field name="degrees" />
+                        <field name="from_city" attr="{readonly:[('degrees_id','=',1)]}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_hospital_doctor_tree" model="ir.ui.view">
+        <field name="name">hospital.degrees.tree</field>
+        <field name="model">hospital.degrees</field>
+        <field name="arch" type="xml">
+           <tree>
+            <!-- <button name="unlink" icon="gtk-cancel" type="object" string="Delete"
+                    attrs="{'invisible': [('degrees', '=', MBBS)]}"/> -->
+              <field name="degrees"></field> 
+           </tree>
+        </field>
+    </record>
+</odoo>    
