@@ -15,7 +15,7 @@ class HospitalDoctorName(models.Model):
     def _compute_appointments(self):
         no_of_apps=0
         for appoints in self:
-            print("_________________",self)
+            # print("_________________",self)
             appointments=self.env["hospital.appointments"].search_count([("doctor_id","=",appoints.name)])
             appoints.no_of_apps=appointments
 
@@ -36,7 +36,7 @@ class HospitalDoctorName(models.Model):
         for i in self:
             # totalDegree=0
             degcount= len(i.degrees_ids.ids)
-            print('345654896,------------',degcount)
+            print('==============,------------',degcount)
             # i.totalDegree=degcount    
         
 

@@ -10,14 +10,16 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="name_id"></field>
-                            <field name="gender"></field>
-                            <field name="stat"></field>
+                            <field name="name_id" />
+                               <!--  attrs="{'readonly':[('stat','=','inConsultation')]}" -->
+                                
+                            <field name="gender"/>
+                            <field name="stat"/>
                         </group>
                         <group>
-                            <field name="doctor_id"></field>
-                            <field name="date"></field>
-                            <field name="appId"></field>
+                            <field name="doctor_id"/>
+                            <field name="date"/>
+                            <field name="appId"/>
                         </group>
                     </group>
                 </sheet>
@@ -29,7 +31,7 @@
         <field name="name">hospital.appointments.tree</field>
         <field name="model">hospital.appointments</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree >
               <field name="name_id"/>
               <field name="doctor_id"/> 
               <field name="appId"/>
@@ -38,7 +40,6 @@
                 decoration-success="stat=='active'"
                 decoration-info="stat=='draft'"
                 decoration-muted="stat=='inConsultation'"
-
                  />
             </tree>
         </field>

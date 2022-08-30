@@ -135,40 +135,150 @@
     </record>
 
 
+        <!--    Employee     action        -->
 
-
-                        <!-- Wizard action -->
-
-    <!-- <record id="action_hospital_wizTest" model="ir.actions.act_window">
-        <field name="name">wiz</field>
+    <record id="action_employees" model="ir.actions.act_window">
+        <field name="name">employees</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">hospital.wiz</field>
+        <field name="res_model">hospital.employees</field>
         <field name="view_mode" >tree,form</field>
         <field name="context">{}</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
-                Create your first degree   
+                Create your first Employee   
             </p>
         </field>
     </record>
- -->
+
+
+        <!--    Bill   action    -->
+
+    <record id="action_bill" model="ir.actions.act_window">
+        <field name="name">bill</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">patient.bill</field>
+        <field name="view_mode" >tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your patient bill   
+            </p>
+        </field>
+    </record>
+
+
+            <!--    Loan   action    -->
+
+    <record id="action_loan" model="ir.actions.act_window">
+        <field name="name">Loan</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">patient.loan</field>
+        <field name="view_mode" >tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your patient Loan   
+            </p>
+        </field>
+    </record>
+
 
 
             <!--        m  e  n  u  i  t  e  m  s          -->
 
-    <!-- main menu -->
+    <!-- m  a  i  n    m  e  n  u -->
+
     <menuitem id="main_menu" 
                 name='hospital'            
-                sequence='0'/>          
+                sequence='0'/>  
+
+ 
+    <!--  patient    menus      -->
+
+            <menuitem id="menu_patient_master" 
+                        name='patient'
+                        parent='main_menu'
+                        sequence='0'/>
+
+            <!-- patient submenu -->
+
+            <menuitem id="menu_patient" 
+                        name='patient_details'
+                        action='action_hospital_patient'
+                        parent='menu_patient_master'
+                        sequence='1'/>
+
+            <!-- department menu-->
+
+            <menuitem id="menu_department" 
+                        name='department'
+                        action='action_hospital_department'
+                        parent='menu_patient_master'
+                        sequence='3'/>
+
+
+    <!-- doctorName menu-->
+            <menuitem id="menu_doctor" 
+                        name='Doctor'
+                        parent="main_menu"
+                        sequence='2'/>
+
+            <menuitem id="menu_doctor_name" 
+                        name='doctorName'
+                        action='action_doctor_name'
+                        parent = 'menu_doctor'
+                        sequence='0'/>
+
+            <!-- degrees menu -->
+            <menuitem id="menu_degrees" 
+                        name='degrees'
+                        action='action_hospital_degrees'
+                        parent='menu_doctor'
+                        sequence='1'/>              
+                                   
+                       
         
-    <!-- appointments menu-->
+    <!--    appointments menu-->
 
-    <menuitem id="menu_appointments" 
-                name='Appointments'
-                action="action_hospital_appointments"
-                parent='main_menu'
-                sequence='4'/>
+            <menuitem id="menu_appointments" 
+                        name='Appointments'
+                        action="action_hospital_appointments"
+                        parent='main_menu'
+                        sequence='3'/>
 
+    <!--   Employees        -->
+
+            <menuitem id="menu_main_Employees" 
+                        name='Employees'
+                        parent='main_menu'
+                        sequence='4'/>
+
+            <menuitem id="menu_Employees" 
+                        name='Employees_details'
+                        action="action_employees"
+                        parent='menu_main_Employees'
+                        sequence='0'/>
+
+    <!--   Finance  (parent)      -->
+
+            <menuitem id="menu_main_finance" 
+                        name='Finance'
+                        parent='main_menu'
+                        sequence='4'/>
+
+                            <!-- Bill -->
+            <menuitem id="menu_bill" 
+                        name='bill_details'
+                        action="action_bill"
+                        parent='menu_main_finance'
+                        sequence='0'/> 
+
+                    <!--   Loan  -->
+            <menuitem id="menu_bill" 
+                        name='bill_details'
+                        action="action_loan"
+                        parent='menu_main_finance'
+                        sequence='1'/>            
 
     <!-- reference menu-->
 
@@ -176,45 +286,18 @@
                 name='reference'
                 action="action_hospital_reference"
                 parent='main_menu'
-                sequence='1'/>
-
-    <!-- patient  menu-->
-
-    <menuitem id="menu_patient_master" 
-                name='patient'
-                parent='main_menu'
-                sequence='2'/>
+                sequence='5'/>
 
 
-    <!-- wizard testing             -->
-    <!-- <menuitem id="action_hospital_wizTest" 
-                name='Wiztest'
-                parent='main_menu'
-                sequence='3'/>
- -->
+    <!--         S  u  b   M  e  n  u  s      -->
 
-    <!-- doctor menu -->
+                           
+
+
+
     
-    <menuitem id="menu_doctor" 
-                name='doctor'
-                parent = 'main_menu'
-                sequence='3'/>
 
-    <!-- patient details menu -->
 
-    <menuitem id="menu_patient" 
-                name='patient_details'
-                action='action_hospital_patient'
-                parent='menu_patient_master'
-                sequence='0'/>
-
-    <!-- department menu-->
-
-    <menuitem id="menu_department" 
-                name='department'
-                action='action_hospital_department'
-                parent='menu_patient_master'
-                sequence='0'/>                       
 
 
     <!-- symptoms menu -->
@@ -224,27 +307,9 @@
                 action='action_hospital_symptoms'
                 parent='menu_patient_master'
                 sequence='0'/>  -->
-
-
-    
-
     
                 <!-- action='action_hospital_doctor' -->
 
 
-    <!-- doctorName menu-->
-
-    <menuitem id="menu_doctor_name" 
-                name='doctorName'
-                action='action_doctor_name'
-                parent = 'menu_doctor'
-                sequence='0'/>
-
-    <!-- degrees menu -->
-    <menuitem id="menu_degrees" 
-                name='degrees'
-                action='action_hospital_degrees'
-                parent='menu_doctor'
-                sequence='0'/>              
-                           
 </odoo>
+

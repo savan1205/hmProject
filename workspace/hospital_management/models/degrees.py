@@ -4,7 +4,8 @@ class HospitalDegrees(models.Model):
     _name = "hospital.degrees"
     _description = "hospital degrees"
 
-    degrees = fields.Char(string="degrees")
+
+    name = fields.Char(string="degrees")
     from_city=fields.Char(string="From city")
     # degree_count=fields.cha(string="degree count")
 

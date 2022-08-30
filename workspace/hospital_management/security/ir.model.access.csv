@@ -11,6 +11,10 @@ hospital_management.access_hospital_degrees,access_hospital_degrees,hospital_man
 
 hospital_management.access_doctor_name,access_doctor_name,hospital_management.model_doctor_name,base.group_user,1,1,1,1
 
-hospital_management.access_popoMenu_wizard,access_popoMenu_wizard,hospital_management.model_popoMenu_wizard,base.group_user,1,1,1,1
+hospital_management.access_hospital_employees,access_hospital_employees,hospital_management.model_hospital_employees,base.group_user,1,1,1,1
+
+hospital_management.access_patient_bill,access_patient_bill,hospital_management.model_patient_bill,base.group_user,1,1,1,1
+
+hospital_management.access_patient_loan,access_patient_loan,hospital_management.model_patient_loan,base.group_user,1,1,1,1
 
 #hospital_management.access_hospital_reference,access_hospital_reference,hospital_management.model_hospital_reference,base.group_user,1,1,1,1

@@ -15,10 +15,10 @@ class HospitalPatient(models.Model):
     catagory=fields.Char(compute="_set_catagory", string="age group")
     
 
-    abc=fields.Integer(comodel_name="hospital.appointments",string='Your Appoint ID is: ')
-    appID=fields.Integer(related="abc.appId" ,string="appID")
+    tockenID=fields.Integer(comodel_name="hospital.appointments",string='Your Appoint ID is: ')
+    pAppID=fields.Integer(related="tockenID.appId" ,string="appID")
     
-    testName= fields.Char(compute="_compute_patients",string="meaningful")
+    females= fields.Char(compute="_compute_patients",string="meaningful")
  
     mo_number=fields.Char(string="Mobile number:")
     doc_id=fields.Many2one(comodel_name="doctor.name",string="With Doctor")
@@ -51,7 +51,7 @@ class HospitalPatient(models.Model):
             # print(doctors,"---------doctors--------\n\n")
             # rec.no_of_patients = patients
             print('Number of  female Patients-----',patients)
-            rec.testName=patients
+        rec.testName=patients
 
 
 

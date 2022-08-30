@@ -36,8 +36,8 @@
                             <field name="birthdate"></field>
                             <field name="gender"></field> 
                             <field name="catagory"></field>
-                            <!-- <field name="appID"></field> -->
-                            <!-- <field name="testName"></field> -->
+                            <!-- <field name="pAppID"></field> -->
+                            <!-- <field name="females"></field> -->
                         </group>
                     </group>
                 </sheet>

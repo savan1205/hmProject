@@ -10,8 +10,8 @@
                 </header>
                 <sheet>
                     <group>                     
-                        <field name="degrees" />
-                        <field name="from_city" attr="{readonly:[('degrees_id','=',1)]}"/>
+                        <field name="name" />
+                        <field name="from_city"/> <!-- attr="{readonly:[('degrees_id','=',1)]}" -->
                     </group>
                 </sheet>
             </form>
@@ -25,7 +25,7 @@
            <tree>
             <!-- <button name="unlink" icon="gtk-cancel" type="object" string="Delete"
                     attrs="{'invisible': [('degrees', '=', MBBS)]}"/> -->
-              <field name="degrees"></field> 
+              <field name="name"></field> 
            </tree>
         </field>
     </record>
