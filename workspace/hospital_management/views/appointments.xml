@@ -15,6 +15,8 @@
                                 
                             <field name="gender"/>
                             <field name="stat"/>
+                            <field name="progress" widget="progressbar"/>
+
                         </group>
                         <group>
                             <field name="doctor_id"/>
@@ -37,10 +39,11 @@
               <field name="appId"/>
               <field name="stat" widget="badge"
                 decoration-danger="stat=='cancelled'"
-                decoration-success="stat=='active'"
+                decoration-success="stat=='done'"
                 decoration-info="stat=='draft'"
-                decoration-muted="stat=='inConsultation'"
-                 />
+                decoration-muted="stat=='inConsultation'"/>
+            <!-- <field name="progress" widget="progressbar"/> -->
+                 
             </tree>
         </field>
     </record>

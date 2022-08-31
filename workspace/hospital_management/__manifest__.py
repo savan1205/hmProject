@@ -18,6 +18,8 @@ This module contains all the common features of Hospital Management.
     'views/departmentView.xml',
     'views/docName.xml',
     'views/degrees.xml',
+    'views/billView.xml',
+    'views/loanView.xml',
 
     # 'views/hospital.xml',
     ],

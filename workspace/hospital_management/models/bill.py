@@ -5,7 +5,7 @@ class PatientBill(models.Model):
     _description = "patient Bill"
 
 
-    name = fields.Char(string="for patient")
+    name = fields.Char(string="Of patient")
     
 
     

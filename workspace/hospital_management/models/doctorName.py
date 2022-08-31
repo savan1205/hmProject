@@ -9,8 +9,9 @@ class HospitalDoctorName(models.Model):
     degrees_ids = fields.Many2many(comodel_name="hospital.degrees",string="Degree")
     belongsTo = fields.Selection([('Yes','yes'),('No','no')],string="Belongs to this Hospital") 
 
-    no_of_apps=fields.Integer(compute="_compute_appointments",string ="No of Appointments")
+    no_of_apps=fields.Integer(compute="_compute_appointments",string ="")
 
+    totalDegree=fields.Integer(compute="action_count_degrees",string="total degrees")
 
     def _compute_appointments(self):
         no_of_apps=0
@@ -28,17 +29,21 @@ class HospitalDoctorName(models.Model):
             'domain':[('doctor_id','=',self.name)],
             'view_mode':'tree,form',
             'target':'current'
-
         }            
 
-
+    @api.model    
     def action_count_degrees(self):
-        for i in self:
-            # totalDegree=0
-            degcount= len(i.degrees_ids.ids)
-            print('==============,------------',degcount)
-            # i.totalDegree=degcount    
-        
+        totalDegree=0
+        def create(self,vals):
+            
+            return  super(HospitalDoctorName,self).create()        
+
+
+        #     degcount= len(i.degrees_ids.ids)
+        #     print('==============,------------',degcount)
+        # i.totalDegree=degcount    
+        # return i.totalDegree
+
 
 
 

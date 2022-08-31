@@ -1,0 +1,39 @@
+<!-- Views for loan -->
+<odoo>
+    <record id="view_patient_loan_form" model="ir.ui.view">
+        <field name="name">patient.loan.form</field>
+        <field name="model">patient.loan</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- <button name="_compute_amount" type="object" class="oe_highlight" string="TotalAmount"/> -->
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"></field>
+                            <field name="pAmount"></field>
+                            <field name="roi"></field>
+                    </group>
+                        <group>
+                            <field name="duration"></field>
+                            <field name="total_amount"></field>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_patient_loan_tree" model="ir.ui.view">
+        <field name="name">patient.loan.tree</field>
+        <field name="model">patient.loan</field>
+        <field name="arch" type="xml">
+           <tree>
+              <field name="name"></field>
+              <field name="total_amount"></field>
+              <!-- <field name="speciality"></field>  -->
+           </tree>
+        </field>
+    </record>
+</odoo>    

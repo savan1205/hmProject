@@ -246,7 +246,7 @@
                         parent='main_menu'
                         sequence='3'/>
 
-    <!--   Employees        -->
+    <!--   Employees      (create salary slip)  -->
 
             <menuitem id="menu_main_Employees" 
                         name='Employees'
@@ -266,7 +266,7 @@
                         parent='main_menu'
                         sequence='4'/>
 
-                            <!-- Bill -->
+                    <!--  Bill (child) -->
             <menuitem id="menu_bill" 
                         name='bill_details'
                         action="action_bill"
@@ -274,19 +274,21 @@
                         sequence='0'/> 
 
                     <!--   Loan  -->
-            <menuitem id="menu_bill" 
-                        name='bill_details'
+            <menuitem id="menu_loan" 
+                        name='loan_details'
                         action="action_loan"
                         parent='menu_main_finance'
                         sequence='1'/>            
 
-    <!-- reference menu-->
+    <!-- Products menu-->
 
-    <menuitem id="menu_reference" 
-                name='reference'
-                action="action_hospital_reference"
+    <menuitem id="menu_products" 
+                name='products'
                 parent='main_menu'
-                sequence='5'/>
+                action="action_products"
+                sequence=''/>
+
+
 
 
     <!--         S  u  b   M  e  n  u  s      -->

@@ -14,20 +14,14 @@ class HospitalPatient(models.Model):
     age_group=fields.Char(string="Age Group",compute="_set_age",store=True)
     catagory=fields.Char(compute="_set_catagory", string="age group")
     
-
-    tockenID=fields.Integer(comodel_name="hospital.appointments",string='Your Appoint ID is: ')
-    pAppID=fields.Integer(related="tockenID.appId" ,string="appID")
-    
+   
     females= fields.Char(compute="_compute_patients",string="meaningful")
  
     mo_number=fields.Char(string="Mobile number:")
     doc_id=fields.Many2one(comodel_name="doctor.name",string="With Doctor")
     
-    # symptoms_ids=fields.Many2many('hospital.symptoms',string="symptoms")
-    # name_id=fields.One2many(comodel_name="doctor.name",string="Reference")
-    # age_group=fields.Char(string="age_group",compute="_set_age",store=True)
-    # ref=fields.Many2one(comodel_name="hospital.appointments",string="appointment id")
-
+    forId=fields.Integer(comodel_name='hospital.appointments')
+    pAppID=fields.Integer(compute="get_ID" ,string="appID")
 
     def unlink(self):
         for Del in self:
@@ -124,3 +118,10 @@ class HospitalPatient(models.Model):
     #         # rec.no_of_patients_count = patients
     #         # print('Number of Patients-----',rec.no_of_patients_count) 
     #         record.testName="demo"       
+
+
+
+    def get_ID(self):
+        for rec in self:
+            idNumber=self.env['hospital.appointments'].search([('name_id','=',rec.id)])
+            rec.pAppID=idNumber.appId    

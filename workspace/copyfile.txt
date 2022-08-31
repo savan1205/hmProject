@@ -1,0 +1,9 @@
+source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
+
+
+ python3 odoo-bin --addons-path=addons/,/home/odoo/Desktop/hmProject/workspace --xmlrpc-port 9071 -d v15hm -u hospital_management
+
+
+savan@icreativetechnolabs.com pass:admin123
+http://127.0.0.1/pgadmin4
+

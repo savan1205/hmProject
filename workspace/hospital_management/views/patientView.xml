@@ -34,9 +34,9 @@
                         </group>
                         <group>
                             <field name="birthdate"></field>
-                            <field name="gender"></field> 
+                            <field name="gender" widget="radio"></field> 
                             <field name="catagory"></field>
-                            <!-- <field name="pAppID"></field> -->
+                            <field name="pAppID"></field>
                             <!-- <field name="females"></field> -->
                         </group>
                     </group>

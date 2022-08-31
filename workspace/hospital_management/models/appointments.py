@@ -14,14 +14,30 @@ class HospitalAppointments(models.Model):
     doctor_id=fields.Many2one(comodel_name="doctor.name",string="With Doctor:")
     
     appId= fields.Integer(compute="_compute_refid",string="AppointID")
+    progress= fields.Integer(compute="_compute_progress",string="progress")
     
     stat=fields.Selection([
-        ('active','Active'),
+        ('done','Done'),
         ('inConsultation','InConsultation'),
         ('cancelled','Cancelled'),
         ('draft','Draft')
         ])
 
+    @api.depends('stat')
+    def _compute_progress(self):
+        for prog in self :
+            # if self.stat:  
+                if prog.stat=="cancelled":
+                    progress=0
+                elif prog.stat=="draft":
+                    progress=25
+                elif prog.stat=="inConsultation":
+                    progress=50
+                elif prog.stat=="Done":
+                    progress=100
+                else:
+                    progress=0
+        prog.progress=progress            
 
     def _compute_refid(self): 
         # print("seeeeeeeeeeeelllllfffff",self)
@@ -36,3 +52,9 @@ class HospitalAppointments(models.Model):
             raise ValidationError(("You cannot delete an InConsultation appointment."))   
         else:
             return super(HospitalAppointments,self).unlink()
+
+
+    @api.model        
+    def default_get(self,fields):
+        resss= super(HospitalAppointments,self).default_get(fields)
+        return resss        

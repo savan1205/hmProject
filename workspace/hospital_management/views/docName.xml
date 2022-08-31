@@ -4,18 +4,23 @@
 		<field name="model">doctor.name</field>
 		<field name="arch" type="xml">
 			<form>
+				
+<!-- object Button		-->
 				<header>
 					<button type="object" name="action_count_degrees" class="oe_highlight"  string="countDegree"/>
 				</header>
+
+<!-- Smart button -->
 				<sheet>
 					<div class="oe_button_box" name="button_box" >
-		                <button name="action_open_patients" type="object" icon="fa-id-card-o" class="oe_stat_button">
+		                <button name="action_open_patients" type="object" icon="fa-id-card-o" class="oe_stat_button" >
 		                	<div class="o_stat_value">
-		                    	<field string="count" name="no_of_apps" widget="statinfo" />
-		                    	<span class="o_stat_text">Appointments</span>
+		                    	<field string="Appointments" name="no_of_apps" widget="statinfo" />
+		                    	<span class="o_stat_text"></span>
 		                	</div>
 		                </button>
 		            </div>
+<!-- fields -->
 					<group >    
 						<group >
 							<field name="name" 
@@ -30,6 +35,9 @@
 			</form>
 		</field>
 	</record>
+
+
+<!-- Tree View -->
 
 	<record id="view_doctor_tree" model="ir.ui.view">
 		<field name="name">doctor.name.tree</field>

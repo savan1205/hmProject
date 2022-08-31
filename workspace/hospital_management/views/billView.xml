@@ -1,0 +1,30 @@
+<!-- Views for bill -->
+<odoo>
+    <record id="view_patient_bill_form" model="ir.ui.view">
+        <field name="name">patient.bill.form</field>
+        <field name="model">patient.bill</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- <button name="_compute_amount" type="object" class="oe_highlight" string="TotalAmount"/> -->
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_patient_bill_tree" model="ir.ui.view">
+        <field name="name">patient.bill.tree</field>
+        <field name="model">patient.bill</field>
+        <field name="arch" type="xml">
+           <tree>
+              <field name="name"/>
+              <!-- <field name="speciality"></field>  -->
+           </tree>
+        </field>
+    </record>
+</odoo>    
