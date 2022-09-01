@@ -13,7 +13,7 @@ class HospitalAppointments(models.Model):
     gender = fields.Selection(related="name_id.gender",string="Gender")
     doctor_id=fields.Many2one(comodel_name="doctor.name",string="With Doctor:")
     
-    appId= fields.Integer(compute="_compute_refid",string="AppointID")
+    appId= fields.Integer(compute="_compute_refid",string="Appointment number")
     progress= fields.Integer(compute="_compute_progress",string="progress")
     
     stat=fields.Selection([
@@ -33,7 +33,7 @@ class HospitalAppointments(models.Model):
                     progress=25
                 elif prog.stat=="inConsultation":
                     progress=50
-                elif prog.stat=="Done":
+                elif prog.stat=="done":
                     progress=100
                 else:
                     progress=0

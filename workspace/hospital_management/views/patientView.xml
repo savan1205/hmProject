@@ -23,11 +23,10 @@
                 <sheet>
                     <group>
                         <group>
-                            <field name="name" decoration-danger="name=='savan'"></field>
+                            <field name="name" decoration-danger="name=='savan'"/>
                             <field name="age"></field>
                             <field name="city"></field>
                             <field name="mo_number"></field>
-                            
                             <field name="doc_id"></field>
                             <!-- <field name="symptoms_ids" widget="many2many_tags"></field> -->
                             <!-- <field name="agg"></field> -->
@@ -37,6 +36,7 @@
                             <field name="gender" widget="radio"></field> 
                             <field name="catagory"></field>
                             <field name="pAppID"></field>
+                            <field name="blood"></field>
                             <!-- <field name="females"></field> -->
                         </group>
                     </group>

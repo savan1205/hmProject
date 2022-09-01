@@ -17,4 +17,7 @@ hospital_management.access_patient_bill,access_patient_bill,hospital_management.
 
 hospital_management.access_patient_loan,access_patient_loan,hospital_management.model_patient_loan,base.group_user,1,1,1,1
 
-#hospital_management.access_hospital_reference,access_hospital_reference,hospital_management.model_hospital_reference,base.group_user,1,1,1,1
+hospital_management.access_patient_room,access_patient_room,hospital_management.model_patient_room,base.group_user,1,1,1,1
+
+
+

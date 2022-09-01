@@ -1,0 +1,32 @@
+<!-- Views for rooms -->
+<odoo>
+    <record id="view_patient_rooms_tree" model="ir.ui.view">
+        <field name="name">patient.room.tree</field>
+        <field name="model">patient.room</field>
+        <field name="arch" type="xml">
+           <tree>
+              <field name="name"/>
+              <!-- <field name="speciality"></field>  -->
+           </tree>
+        </field>
+    </record>
+    <record id="view_patient_rooms_form" model="ir.ui.view">
+        <field name="name">patient.room.form</field>
+        <field name="model">patient.room</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- <button name="_compute_amount" type="object" class="oe_highlight" string="TotalAmount"/> -->
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="roomType"/>
+                        <field name="price"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+</odoo>    

@@ -7,25 +7,55 @@ class HospitalPatient(models.Model):
 
 
     name = fields.Char(string="Name")
-    birthdate=fields.Date(string="birthdate")
+    
+    birthdate = fields.Date(string="birthdate")
+    
     age = fields.Integer(compute="_compute_age",string="Age",store=True)
-    gender = fields.Selection([('male','Male'),('female','Female')],string="Gender")
+
+    gender = fields.Selection([
+        ('male','Male'),
+        ('female','Female')],string="Gender")
     city = fields.Char(string="City")
-    age_group=fields.Char(string="Age Group",compute="_set_age",store=True)
-    catagory=fields.Char(compute="_set_catagory", string="age group")
+    
+    age_group = fields.Char(string="Age Group",compute="_set_age",store=True)
+    
+    catagory = fields.Char(compute="_set_catagory", string="age group")
     
    
-    females= fields.Char(compute="_compute_patients",string="meaningful")
+    females = fields.Char(compute="_compute_patients",string="meaningful")
  
-    mo_number=fields.Char(string="Mobile number:")
-    doc_id=fields.Many2one(comodel_name="doctor.name",string="With Doctor")
+    # mob with create method   
+    mo_number = fields.Char(string="Mobile number:")
+    doc_id = fields.Many2one(comodel_name="doctor.name",string="With Doctor")
+        
+   # appointment number from appointments table
+    pAppID = fields.Integer(compute="get_ID" ,string="Appointment Number")
     
-    forId=fields.Integer(comodel_name='hospital.appointments')
-    pAppID=fields.Integer(compute="get_ID" ,string="appID")
+    blood = fields.Selection([
+        ('a+','A+'),
+        ('a-','A-'),
+        ('b+','B+'),
+        ('b-','B-'),
+        ('o+','O+'),
+        ('o-','O-'),
+        ('ab+','AB+'),
+        ('ab-','AB-'),
+        ],string="Blood group")
+
+
+
+                            # Functions
+
+    def get_ID(self):
+        for rec in self:
+            idNumber=self.env['hospital.appointments'].search([('name_id','=',rec.id)])
+            rec.pAppID=idNumber.appId 
+
 
     def unlink(self):
         for Del in self:
             patients = self.env["hospital.appointments"].search([('name_id','=',Del.name)]) 
+            print("----------======/////////@@@@@@",patients)
             res = super(HospitalPatient,self).unlink()
             patients.unlink()
             return res 
@@ -121,7 +151,4 @@ class HospitalPatient(models.Model):
 
 
 
-    def get_ID(self):
-        for rec in self:
-            idNumber=self.env['hospital.appointments'].search([('name_id','=',rec.id)])
-            rec.pAppID=idNumber.appId    
+       
