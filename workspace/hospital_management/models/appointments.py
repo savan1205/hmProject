@@ -6,11 +6,11 @@ from odoo.exceptions import ValidationError
 class HospitalAppointments(models.Model):
     _name = "hospital.appointments"
     _description = "Hospital Appointments"
-    # _rec_name="ref"
+    _rec_name="patient_id"
 
-    name_id=fields.Many2one(comodel_name="hospital.patient",string="Patient Name:")
+    patient_id=fields.Many2one(comodel_name="hospital.patient",string="Patient Name:")
     date=fields.Datetime(string="Date")
-    gender = fields.Selection(related="name_id.gender",string="Gender")
+    gender = fields.Selection(related="patient_id.gender",string="Gender")
     doctor_id=fields.Many2one(comodel_name="doctor.name",string="With Doctor:")
     
     appId= fields.Integer(compute="_compute_refid",string="Appointment number")

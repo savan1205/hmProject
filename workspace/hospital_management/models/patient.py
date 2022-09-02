@@ -29,8 +29,10 @@ class HospitalPatient(models.Model):
     doc_id = fields.Many2one(comodel_name="doctor.name",string="With Doctor")
         
    # appointment number from appointments table
-    pAppID = fields.Integer(compute="get_ID" ,string="Appointment Number")
+    # pAppID = fields.Integer(compute="get_ID" ,string="Appointment Number")
     
+    refBy_ids = fields.Many2many(comodel_name="doctor.name", string="Refered By: ")
+
     blood = fields.Selection([
         ('a+','A+'),
         ('a-','A-'),

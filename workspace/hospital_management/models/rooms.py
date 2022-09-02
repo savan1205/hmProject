@@ -15,8 +15,11 @@ class PatientRoom(models.Model):
         ('PICU','PICU'),
         ('NURSERY','NURSERY'),
         ],string="Room Type")
+    
+
     # costOf = fields. 
     price=fields.Integer(compute='_compute_price',string="Price: ")
+
     # bill = fields.Integer(string="Amount")
 
     # duration

@@ -1,0 +1,32 @@
+<!-- Views for wizard sanitize -->
+
+<odoo>
+
+    <record id="action_sanitize_room" model="ir.ui.view">
+        <field name="name">sanitize.room.form</field>
+        <field name="model">sanitize.room</field>
+        <field name="arch" type="xml">
+            <form string="Cancelation reason">
+                <sheet>
+                    <group>
+                        <field name="room_num_ids"/>
+                    </group>
+                    <footer>
+                        <button name="_get_room" string="Submit" class="btn-primary" type='object'/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_sanitize_room" model="ir.actions.act_window">
+        <field name="name">Sanitize Room</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">sanitize.room</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_wizard_Cancle_form"></field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>    

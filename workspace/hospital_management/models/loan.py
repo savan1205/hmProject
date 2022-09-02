@@ -6,10 +6,10 @@ class PatientLoan(models.Model):
 
 
     name = fields.Many2one(comodel_name="hospital.patient",string="for patient")
-    pAmount=fields.Integer(string="Principal Amount")
-    duration=fields.Integer(string="Duration (in Years)")
-    roi=fields.Integer(string="rate of interest",default=5)
-    total_amount=fields.Integer(compute="_compute_amount",string="Total Amount")
+    pAmount=fields.Float(string="Principal Amount")
+    duration=fields.Float(string="Duration (in Years)")
+    roi=fields.Integer(string="rate of interest",default=5,readonly=True)
+    total_amount=fields.Float(compute="_compute_amount",string="Total Amount")
     
     state=fields.Selection([
         ('active','Active'),

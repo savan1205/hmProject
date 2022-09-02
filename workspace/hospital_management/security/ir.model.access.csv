@@ -19,5 +19,7 @@ hospital_management.access_patient_loan,access_patient_loan,hospital_management.
 
 hospital_management.access_patient_room,access_patient_room,hospital_management.model_patient_room,base.group_user,1,1,1,1
 
+hospital_management.access_cancel_appointment,access_cancel_appointment,hospital_management.model_cancel_appointment,base.group_user,1,1,1,1
 
+hospital_management.access_hospital_roomnum,access_hospital_roomnum,hospital_management.model_hospital_roomnum,base.group_user,1,1,1,1
 

@@ -5,6 +5,7 @@
         <field name="model">patient.room</field>
         <field name="arch" type="xml">
            <tree>
+              <field name="roomType"/>
               <field name="name"/>
               <!-- <field name="speciality"></field>  -->
            </tree>
@@ -20,9 +21,13 @@
                 </header>
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="roomType"/>
-                        <field name="price"/>
+                        <group>
+                            <field name="roomType"/>
+                            <field name="price"/>
+                        </group>    
+                        <group>    
+                            <field name="name"/>
+                        </group>
                     </group>
                 </sheet>
             </form>

@@ -182,7 +182,7 @@
         </field>
     </record>
 
-        <!--     Beds   Allocation      -->
+        <!--     rooms   Allocation      -->
     <record id="action_room" model="ir.actions.act_window">
         <field name="name">Room</field>
         <field name="type">ir.actions.act_window</field>
@@ -192,6 +192,21 @@
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">
                 Create your patient Room   
+            </p>
+        </field>
+    </record>
+
+    
+        <!--     rooms nums       -->
+    <record id="action_roomnums" model="ir.actions.act_window">
+        <field name="name">Room num</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hospital.roomnum</field>
+        <field name="view_mode" >tree,form</field>
+        <field name="context">{}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                select your Room Number   
             </p>
         </field>
     </record>
@@ -220,7 +235,7 @@
                         name='patient_details'
                         action='action_hospital_patient'
                         parent='menu_patient_master'
-                        sequence='1'/>
+                        sequence='0'/>
 
             <!-- department menu-->
 
@@ -228,7 +243,22 @@
                         name='department'
                         action='action_hospital_department'
                         parent='menu_patient_master'
-                        sequence='3'/>
+                        sequence='1'/>
+
+            <!-- rooms menu-->
+
+            <menuitem id="menu_room" 
+                        name='rooms'
+                        action="action_room"
+                        parent='menu_patient_master'
+                        sequence='2'/> 
+
+            <menuitem id="menu_roomNum" 
+                        name='roomsnum'
+                        action="action_roomnums"
+                        parent='menu_patient_master'
+                        sequence='3'/>            
+
 
 
     <!-- doctorName menu-->
@@ -303,13 +333,7 @@
                 action="action_products" --> -->
 
 
-    <!-- Beds menu-->
-
-     <menuitem id="menu_room" 
-                name='rooms'
-                parent='menu_patient_master'
-                action="action_room"
-                sequence='3'/>
+    
 
 
 

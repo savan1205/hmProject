@@ -11,6 +11,7 @@ This module contains all the common features of Hospital Management.
     'depends': [],
     'data':[
     'security/ir.model.access.csv',
+    'wizard/cancelAppoi.xml',
     'views/menu.xml',
     'views/appointments.xml',
     'views/patientView.xml',
@@ -20,6 +21,8 @@ This module contains all the common features of Hospital Management.
     'views/degrees.xml',
     'views/billView.xml',
     'views/loanView.xml',
+    'views/rooms.xml',
+    'views/roomNum.xml',
 
     # 'views/hospital.xml',
     ],

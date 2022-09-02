@@ -4,19 +4,17 @@
         <field name="model">hospital.appointments</field>
         <field name="arch" type="xml">
             <form>
-                <!-- <header>
-                    <button name="action_cancel" string="cancel" class="oe_highlight" type="object"/>
-                </header> -->
+                <header>
+                    <button name="%(hospital_management.action_cancel_appointment)d" string="cancel" class="oe_highlight" type="action"/>
+                </header>
                 <sheet>
                     <group>
                         <group>
-                            <field name="name_id" />
+                            <field name="patient_id"/>
                                <!--  attrs="{'readonly':[('stat','=','inConsultation')]}" -->
-                                
                             <field name="gender"/>
                             <field name="stat"/>
                             <field name="progress" widget="progressbar"/>
-
                         </group>
                         <group>
                             <field name="doctor_id"/>
@@ -34,7 +32,7 @@
         <field name="model">hospital.appointments</field>
         <field name="arch" type="xml">
             <tree >
-              <field name="name_id"/>
+              <field name="patient_id"/>
               <field name="doctor_id"/> 
               <field name="appId"/>
               <field name="stat" widget="badge"

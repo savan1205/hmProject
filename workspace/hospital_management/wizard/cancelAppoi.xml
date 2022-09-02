@@ -1,0 +1,34 @@
+<!-- Views for wizard cancel -->
+
+<odoo>
+
+    <record id="view_wizard_Cancle_form" model="ir.ui.view">
+        <field name="name">cancel.appointment.form</field>
+        <field name="model">cancel.appointment</field>
+        <field name="arch" type="xml">
+            <form string="Cancelation reason">
+                <sheet>
+                    <group>
+
+                        <field name="patient_id"/>
+                        <field name="reason"/>
+                    </group>
+                    <footer>
+                        <button name="cancel_appointment" string="Submit" class="btn-primary" type='object'/>
+                        <button string="Cancel" class="btn-secondary" special="cancel"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_cancel_appointment" model="ir.actions.act_window">
+        <field name="name">Cancel Appointment</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">cancel.appointment</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_wizard_Cancle_form"></field>
+        <field name="target">new</field>
+    </record>
+
+</odoo>    

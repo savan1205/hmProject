@@ -1,0 +1,43 @@
+<!-- Views for Room number -->
+<odoo>
+    <record id="view_hospital_number_form" model="ir.ui.view">
+        <field name="name">hospital.roomnum.form</field>
+        <field name="model">hospital.roomnum</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <!-- <button name="_compute_amount" type="object" class="oe_highlight" string="TotalAmount"/> -->
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="roomType"/>
+                            <field name="availability"/>
+                        </group>
+                        <group>
+                            <field name="Sanitized"/>
+                             <field name="airConditioned"/>
+                        </group>    
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_patient_bill_tree" model="ir.ui.view">
+        <field name="name">hospital.roomnum.tree</field>
+        <field name="model">hospital.roomnum</field>
+        <field name="arch" type="xml">
+            <!-- <button name ="" class="btn-secondary" string="sanitize" type='object'> -->
+           <tree>
+                <field name="roomType"/>
+                <field name="availability"/>
+                <field name="airConditioned" decoration-info="airConditioned=='Ac'" widget="badge"/>
+                <field name="Sanitized" 
+                    decoration-success="Sanitized=='Yes'"
+                    decoration-danger="Sanitized=='No'" 
+                    widget="badge"/>
+           </tree>
+        </field>
+    </record>
+</odoo>    
